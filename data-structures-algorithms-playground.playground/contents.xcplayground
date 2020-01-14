@@ -4,5 +4,7 @@
         <page name='Stack'/>
         <page name='LinkedList'/>
         <page name='QueueArray'/>
+        <page name='QueueLinkedList'/>
+        <page name='QueueRingBuffer'/>
     </pages>
 </playground>

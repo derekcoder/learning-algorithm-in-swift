@@ -28,7 +28,7 @@ extension QueueArray: CustomStringConvertible {
     guard !isEmpty else {
       return "Empty queue"
     }
-    return "⭠ \(storage.reversed().map { "\($0)" }.joined(separator: " ")) ⭠"
+    return "\(storage.reversed().map { "\($0)" }.joined(separator: " "))"
   }
 }
 
@@ -41,6 +41,7 @@ example(of: "using queue") {
   print(queue)
   queue.dequeue()
   print(queue)
-  queue.peek
-  print(queue)
+  if let element = queue.peek {
+    print(element)
+  }
 }
