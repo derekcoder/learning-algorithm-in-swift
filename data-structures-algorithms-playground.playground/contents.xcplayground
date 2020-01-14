@@ -6,5 +6,6 @@
         <page name='QueueArray'/>
         <page name='QueueLinkedList'/>
         <page name='QueueRingBuffer'/>
+        <page name='QueueStack'/>
     </pages>
 </playground>
