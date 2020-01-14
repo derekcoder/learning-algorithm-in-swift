@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios'>
     <pages>
-        <page name='Stack'/>
         <page name='LinkedList'/>
-        <page name='QueueArray'/>
-        <page name='QueueLinkedList'/>
-        <page name='QueueRingBuffer'/>
-        <page name='QueueStack'/>
+        <page name='DoublyLinkedList'/>
     </pages>
 </playground>
