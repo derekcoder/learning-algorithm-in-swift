@@ -1,0 +1,57 @@
+import Foundation
+
+public class BinaryNode<T> {
+  public var value: T
+  public var leftChild: BinaryNode?
+  public var rightChild: BinaryNode?
+  
+  public init(value: T) {
+    self.value = value
+  }
+}
+
+extension BinaryNode: CustomStringConvertible {
+  public var description: String {
+    diagrom(for: self)
+  }
+  
+  private func diagrom(
+    for node: BinaryNode?,
+    _ top: String = "",
+    _ root: String = "",
+    _ bottom: String = "") -> String
+  {
+    guard let node = node else { return root + "nil\n" }
+    
+    if node.leftChild == nil && node.rightChild == nil {
+      return root + "\(node.value)\n"
+    }
+    return diagrom(for: node.rightChild, top + " ", top + "┌──", top + "│ ")
+      + root
+      + "\(node.value)\n"
+      + diagrom(for: node.leftChild, bottom + "│ ", bottom + "└──", bottom + " ")
+  }
+}
+
+extension BinaryNode {
+  // Time: O(n)
+  public func traverseInOrder(visit: (T) -> Void) {
+    leftChild?.traverseInOrder(visit: visit)
+    visit(value)
+    rightChild?.traverseInOrder(visit: visit)
+  }
+  
+  // Time: O(n)
+  public func traversePreOrder(visit: (T) -> Void) {
+    visit(value)
+    leftChild?.traversePreOrder(visit: visit)
+    rightChild?.traversePreOrder(visit: visit)
+  }
+  
+  // Time: O(n)
+  public func traversePostOrder(visit: (T) -> Void) {
+    leftChild?.traversePostOrder(visit: visit)
+    rightChild?.traversePostOrder(visit: visit)
+    visit(value)
+  }
+}
