@@ -1,4 +1,4 @@
-public class AVLNode<T> {
+public final class AVLNode<T> {
   
   public var value: T
   public var leftChild: AVLNode?
@@ -43,26 +43,5 @@ extension AVLNode: CustomStringConvertible {
     return diagram(for: node.rightChild, top + " ", top + "┌──", top + "│ ")
       + root + "\(node.value)\n"
       + diagram(for: node.leftChild, bottom + "│ ", bottom + "└──", bottom + " ")
-  }
-}
-
-extension AVLNode {
-  
-  public func traverseInOrder(visit: (T) -> Void) {
-    leftChild?.traverseInOrder(visit: visit)
-    visit(value)
-    rightChild?.traverseInOrder(visit: visit)
-  }
-  
-  public func traversePreOrder(visit: (T) -> Void) {
-    visit(value)
-    leftChild?.traversePreOrder(visit: visit)
-    rightChild?.traversePreOrder(visit: visit)
-  }
-  
-  public func traversePostOrder(visit: (T) -> Void) {
-    leftChild?.traversePostOrder(visit: visit)
-    rightChild?.traversePostOrder(visit: visit)
-    visit(value)
   }
 }
